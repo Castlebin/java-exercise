@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,16 @@ public class CollectTest {
         List<String> nums = Arrays.asList("1", "2", "1", "3");
         Map<String, String> map = nums.stream()
                 .collect(Collectors.toMap(num -> num, Function.identity()));
+    }
+
+    /**
+     * collect toSet 重复并不会有问题！
+     */
+    @Test
+    public void testCollectToSet() {
+        List<String> nums = Arrays.asList("1", "2", "1", "3");
+        Set<String> set = nums.stream()
+                .collect(Collectors.toSet());
     }
 
 }
