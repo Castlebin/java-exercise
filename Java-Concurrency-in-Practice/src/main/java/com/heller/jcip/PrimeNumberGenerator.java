@@ -3,6 +3,11 @@ package com.heller.jcip;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * 质数定义：
+ * 质数又称素数。 一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做质数；
+ * 否则称为合数（规定 1 既不是质数也不是合数）。
+ */
 public class PrimeNumberGenerator {
 
     public static long findPrimeNumber(long nTh) {
@@ -23,14 +28,15 @@ public class PrimeNumberGenerator {
     }
 
     public static boolean isPrimeNumber(long num) {
+        if (num <= 1) {
+            throw new IllegalArgumentException("num must bigger then 1 !");
+        }
         if (num == 2 || num == 3) {
             return true;
         }
-
         if (num % 2 == 0) {
             return false;
         }
-
         for (long divisor = 3; divisor <= Math.sqrt(num); divisor+=2) {
             if (num % divisor == 0) {
                 return false;
@@ -47,6 +53,15 @@ public class PrimeNumberGenerator {
             System.out.println(nth + " -> " + prime + ", time: " + (end - start) + " ms, thread: " + Thread.currentThread().getName());
             start = end;
         }
+    }
+
+    /**
+     * 求一个很大的质数，可以用来模拟长耗时的计算任务。
+     */
+    public static void longTimeJob(long nth) {
+        long start = System.currentTimeMillis();
+        long prime = findPrimeNumber(nth);
+        System.out.println(nth + " -> " + prime + ", cost time: " + (System.currentTimeMillis() - start) + " ms, thread: " + Thread.currentThread().getName());
     }
 
     @Test
