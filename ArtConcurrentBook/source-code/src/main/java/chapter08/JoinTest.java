@@ -1,4 +1,4 @@
-package com.heller.jcip.ch08;
+package chapter08;
 
 public class JoinTest {
 
