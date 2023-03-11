@@ -11,6 +11,8 @@ CyclicBarrier 是一个同步屏障，它可以在多个线程之间建立一个
 
 CyclicBarrier 的字面意思是可循环（Cyclic）使用的屏障（Barrier）。
 通过 reset() 方法可以循环使用这个屏障。
+
+CyclicBarrier 比 CountDownLatch 更加灵活，因为它可以循环使用，并且提供额外的能力。
  */
 public class CyclicBarrierTest {
 
