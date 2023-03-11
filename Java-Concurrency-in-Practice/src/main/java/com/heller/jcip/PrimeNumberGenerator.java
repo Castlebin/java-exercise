@@ -61,7 +61,9 @@ public class PrimeNumberGenerator {
     public static void longTimeJob(long nth) {
         long start = System.currentTimeMillis();
         long prime = findPrimeNumber(nth);
-        System.out.println(nth + " -> " + prime + ", cost time: " + (System.currentTimeMillis() - start) + " ms, thread: " + Thread.currentThread().getName());
+        System.err.println(nth + " -> " + prime + ", cost time: "
+                + (System.currentTimeMillis() - start) + " ms, "
+                + "thread: " + Thread.currentThread().getName());
     }
 
     @Test
