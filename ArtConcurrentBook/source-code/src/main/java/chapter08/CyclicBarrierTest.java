@@ -3,7 +3,7 @@ package chapter08;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-import com.heller.jcip.PrimeNumberGenerator;
+import util.PrimeNumberGenerator;
 
 /*
 CyclicBarrier 是一个同步屏障，它可以在多个线程之间建立一个屏障，
