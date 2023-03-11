@@ -10,6 +10,12 @@ import java.util.concurrent.Exchanger;
 public class ExchangerTest {
 
     public static void main(String[] args) {
+        /*
+         Exchanger 是两个线程之间进行数据交换的工具，所以如果是奇数个线程，有一个线程是无法交换数据的，会阻塞。
+         Exchanger 是可以多个线程之间交换数据的，但是只能是两两之间交换数据。
+         而且，多个线程，容易混乱，你不知道到底是哪两个线程交换了数据，所以，Exchanger 一般用于两个线程之间交换数据。
+         */
+
         Exchanger<String> exchanger = new Exchanger<>();
 
         new Thread(() -> {
