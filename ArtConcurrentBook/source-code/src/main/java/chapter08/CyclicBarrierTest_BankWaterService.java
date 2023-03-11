@@ -1,4 +1,4 @@
-package com.heller.jcip.ch08;
+package chapter08;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CyclicBarrier;
