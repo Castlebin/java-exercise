@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.heller.jcip.ch08;
+package chapter08;
 
 /**
  * ch08 Java 中的并发工具类
