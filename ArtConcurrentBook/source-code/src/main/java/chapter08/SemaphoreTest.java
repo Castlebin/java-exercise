@@ -4,34 +4,42 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
-/**
- * 
- * @author tengfei.fangtf
- * @version $Id: SemaphoreTest.java, v 0.1 2015-8-1 上午12:10:19 tengfei.fangtf Exp $
+import com.heller.jcip.PrimeNumberGenerator;
+
+/*
+Semaphore （信号量）是用来控制同时访问特定资源的线程数量 （流量控制场景）
+
+Semaphore 可以控制同时访问资源的线程个数，
+acquire() 获取一个许可，如果没有就等待，
+release() 释放一个许可。
  */
+
 public class SemaphoreTest {
 
-    private static final int       THREAD_COUNT = 30;
+    private static final int THREAD_COUNT = 30;
 
-    private static ExecutorService threadPool   = Executors.newFixedThreadPool(THREAD_COUNT);
+    private static ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_COUNT);
 
-    private static Semaphore       s            = new Semaphore(10);
+    private static Semaphore semaphore = new Semaphore(5);
 
     public static void main(String[] args) {
         for (int i = 0; i < THREAD_COUNT; i++) {
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        s.acquire();
-                        System.out.println("save data");
-                        s.release();
-                    } catch (InterruptedException e) {
-                    }
+            threadPool.execute(() -> {
+                try {
+                    semaphore.acquire();
+                    // 模拟耗时操作
+                    PrimeNumberGenerator.longTimeJob(100000);
+
+                    System.out.println("save data. " + Thread.currentThread().getName()
+                            + ", waiting count: " + semaphore.getQueueLength());
+
+                    semaphore.release();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             });
         }
-
         threadPool.shutdown();
     }
+
 }
