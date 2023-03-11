@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
-import com.heller.jcip.PrimeNumberGenerator;
+import util.PrimeNumberGenerator;
 
 /*
 Semaphore （信号量）是用来控制同时访问特定资源的线程数量 （流量控制场景）
