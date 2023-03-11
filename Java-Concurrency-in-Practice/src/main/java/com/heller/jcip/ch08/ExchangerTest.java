@@ -21,7 +21,8 @@ public class ExchangerTest {
         new Thread(() -> {
             try {
                 String a = "银行流水A";
-                exchanger.exchange(a);
+                String t = exchanger.exchange(a);
+                System.out.println("A -> " + t);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
