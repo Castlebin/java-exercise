@@ -18,7 +18,9 @@ public abstract class SocketUsingTask<T> implements CancellableTask<T> {
             if (socket != null) {
                 socket.close();
             }
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+            System.out.println("SocketUsingTask cancel() IOException, task end.");
+        }
     }
 
     @Override
