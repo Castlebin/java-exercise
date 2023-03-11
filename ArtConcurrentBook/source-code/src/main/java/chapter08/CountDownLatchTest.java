@@ -2,7 +2,7 @@ package chapter08;
 
 import java.util.concurrent.CountDownLatch;
 
-import com.heller.jcip.PrimeNumberGenerator;
+import util.PrimeNumberGenerator;
 
 /*
 CountDownLatch 是一个同步工具类，它允许一个或多个线程一直等待，直到其他线程的操作执行完后再执行。
