@@ -10,4 +10,10 @@ public class SystemUtil {
         }
     }
 
+    public static long cost(Runnable runnable) {
+        long start = System.currentTimeMillis();
+        runnable.run();
+        return System.currentTimeMillis() - start;
+    }
+
 }
