@@ -9,6 +9,7 @@
 *.swn
 *.bk
 *.bak
+.history
 logs/
 log/
 
